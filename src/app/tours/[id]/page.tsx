@@ -1,20 +1,5 @@
-'use client'
-
-import { useEffect, useState } from 'react'
-import { useParams } from 'next/navigation'
-import { motion } from 'framer-motion'
-import Image from 'next/image'
-import { 
-  Star, Clock, MapPin, Users, Heart, Share2, 
-  CheckCircle, Play, Download, ShoppingCart 
-} from 'lucide-react'
-import AudioPlayer from '@/components/tour-detail/AudioPlayer'
-import InteractiveTourMap from '@/components/tour-detail/InteractiveTourMap'
-import ReviewsSection from '@/components/tour-detail/ReviewsSection'
-import AuthorCard from '@/components/tour-detail/AuthorCard'
-import RelatedTours from '@/components/tour-detail/RelatedTours'
 import { mockTours } from '@/lib/mockData'
-import { Tour } from '@/types'
+import TourDetailClient from './TourDetailClient'
 
 // Generate static params for all tours
 export async function generateStaticParams() {
@@ -26,12 +11,8 @@ export async function generateStaticParams() {
 }
 
 export default function TourDetailPage() {
-  const params = useParams()
-  const [tour, setTour] = useState<Tour | null>(null)
-  const [isFavorite, setIsFavorite] = useState(false)
-  const [activeTab, setActiveTab] = useState<'overview' | 'route' | 'reviews'>('overview')
-
-  useEffect(() => {
+  return <TourDetailClient />
+}
     // В реальном приложении здесь будет API запрос
     const foundTour = mockTours.find(t => t.id === params.id)
     if (foundTour) {

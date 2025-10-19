@@ -1,5 +1,3 @@
-'use client'
-
 import { motion } from 'framer-motion'
 import { Clock, User, Tag, ArrowLeft, Share2, Heart, Bookmark } from 'lucide-react'
 import Image from 'next/image'
