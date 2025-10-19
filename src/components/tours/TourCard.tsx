@@ -164,3 +164,4 @@ const TourCard = ({ tour }: TourCardProps) => {
 
 export default TourCard
 
+

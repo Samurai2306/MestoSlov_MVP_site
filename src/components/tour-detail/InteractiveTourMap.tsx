@@ -237,3 +237,4 @@ const InteractiveTourMap = ({ tour }: InteractiveTourMapProps) => {
 
 export default InteractiveTourMap
 
+

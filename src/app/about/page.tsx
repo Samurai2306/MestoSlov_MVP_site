@@ -8,25 +8,25 @@ export default function AboutPage() {
     {
       name: 'Анна Смирнова',
       role: 'CEO & Основатель',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400',
+      image: '/assets/imgAndLogo/1.jpg',
       bio: 'Путешественник с 10-летним опытом, влюбленный в Россию'
     },
     {
       name: 'Дмитрий Петров',
       role: 'CTO',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400',
+      image: '/assets/imgAndLogo/2.jpg',
       bio: 'Разработчик и технический энтузиаст'
     },
     {
       name: 'Елена Иванова',
       role: 'Главный редактор',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400',
+      image: '/assets/imgAndLogo/3.jpg',
       bio: 'Автор более 50 аудиоэкскурсий'
     },
     {
       name: 'Сергей Козлов',
       role: 'Дизайнер',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400',
+      image: '/assets/imgAndLogo/4.jpg',
       bio: 'Создатель визуальной концепции проекта'
     },
   ]
@@ -252,4 +252,5 @@ export default function AboutPage() {
     </div>
   )
 }
+
 

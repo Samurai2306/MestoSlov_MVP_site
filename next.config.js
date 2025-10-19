@@ -1,9 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: 'export',
+  trailingSlash: true,
   images: {
     domains: ['res.cloudinary.com', 'images.unsplash.com'],
-    unoptimized: false,
+    unoptimized: true,
   },
   webpack: (config) => {
     config.module.rules.push({
@@ -19,15 +21,8 @@ const nextConfig = {
     });
     return config;
   },
-  async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: 'http://localhost:5000/api/:path*',
-      },
-    ];
-  },
 };
 
 module.exports = nextConfig;
+
 

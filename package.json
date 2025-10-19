@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "export": "next build && next export",
     "backend": "cd backend && npm run dev",
     "dev:all": "concurrently \"npm run dev\" \"npm run backend\""
   },
@@ -51,4 +52,5 @@
     "eslint-config-next": "14.2.3"
   }
 }
+
 

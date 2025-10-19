@@ -71,3 +71,4 @@ const toursSlice = createSlice({
 export const { setTours, setSelectedTour, setFilters, filterTours, setLoading } = toursSlice.actions
 export default toursSlice.reducer
 
+

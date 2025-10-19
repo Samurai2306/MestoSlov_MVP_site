@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, User, Search, MapPin, BookOpen, Headphones } from 'lucide-react'
 import { useSelector } from 'react-redux'
@@ -11,6 +12,8 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { isAuthenticated, user } = useSelector((state: RootState) => state.auth)
+  const pathname = usePathname()
+  const isHomePage = pathname === '/'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,12 +30,25 @@ const Navigation = () => {
     { href: '/contact', label: 'Контакты', icon: <Headphones className="w-4 h-4" /> },
   ]
 
+  // Определяем цвета текста в зависимости от страницы и скролла
+  const getTextColor = () => {
+    if (isScrolled) return 'text-gray-700'
+    if (isHomePage) return 'text-white'
+    return 'text-gray-900'
+  }
+
+  const getLogoTextColor = () => {
+    if (isScrolled) return 'text-primary-green'
+    if (isHomePage) return 'text-white'
+    return 'text-primary-green'
+  }
+
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+        isScrolled || !isHomePage
           ? 'bg-white/95 backdrop-blur-md shadow-lg py-4'
           : 'bg-transparent py-6'
       }`}
@@ -44,13 +60,11 @@ const Navigation = () => {
             <motion.div
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.6 }}
-              className="w-10 h-10 bg-gradient-sunset rounded-full flex items-center justify-center"
+              className="w-10 h-10 bg-gradient-to-r from-primary-teal to-primary-green rounded-full flex items-center justify-center"
             >
               <Headphones className="w-5 h-5 text-white" />
             </motion.div>
-            <span className={`text-2xl font-bold transition-colors ${
-              isScrolled ? 'text-primary-green' : 'text-white'
-            }`}>
+            <span className={`text-2xl font-bold transition-colors ${getLogoTextColor()}`}>
               МестоСлов
             </span>
           </Link>
@@ -61,9 +75,7 @@ const Navigation = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`flex items-center space-x-2 font-medium transition-colors hover:text-primary-teal ${
-                  isScrolled ? 'text-gray-700' : 'text-white'
-                }`}
+                className={`flex items-center space-x-2 font-medium transition-colors hover:text-primary-teal ${getTextColor()}`}
               >
                 {link.icon}
                 <span>{link.label}</span>
@@ -73,21 +85,23 @@ const Navigation = () => {
 
           {/* Right Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`p-2 rounded-full transition-colors ${
-                isScrolled ? 'hover:bg-gray-100' : 'hover:bg-white/20'
-              }`}
-            >
-              <Search className={`w-5 h-5 ${isScrolled ? 'text-gray-700' : 'text-white'}`} />
-            </motion.button>
+            <Link href="/search">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`p-2 rounded-full transition-colors ${
+                  isScrolled || !isHomePage ? 'hover:bg-gray-100' : 'hover:bg-white/20'
+                }`}
+              >
+                <Search className={`w-5 h-5 ${getTextColor()}`} />
+              </motion.button>
+            </Link>
 
             {isAuthenticated ? (
               <Link href="/profile">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  className="flex items-center space-x-2 px-4 py-2 rounded-full bg-primary-teal text-white"
+                  className="flex items-center space-x-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary-teal to-primary-green text-white shadow-lg"
                 >
                   <User className="w-4 h-4" />
                   <span>{user?.name}</span>
@@ -100,7 +114,7 @@ const Navigation = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className={`px-4 py-2 rounded-full font-medium transition-colors ${
-                      isScrolled
+                      isScrolled || !isHomePage
                         ? 'text-gray-700 hover:bg-gray-100'
                         : 'text-white hover:bg-white/20'
                     }`}
@@ -112,7 +126,7 @@ const Navigation = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-6 py-2 rounded-full bg-gradient-sunset text-white font-medium shadow-lg"
+                    className="px-6 py-2 rounded-full bg-gradient-to-r from-primary-teal to-accent-amber text-white font-medium shadow-lg hover:shadow-xl transition-all"
                   >
                     Начать
                   </motion.button>
@@ -125,9 +139,7 @@ const Navigation = () => {
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden p-2 rounded-lg ${
-              isScrolled ? 'text-gray-700' : 'text-white'
-            }`}
+            className={`md:hidden p-2 rounded-lg ${getTextColor()}`}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </motion.button>

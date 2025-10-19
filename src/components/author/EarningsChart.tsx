@@ -88,3 +88,4 @@ const EarningsChart = () => {
 
 export default EarningsChart
 
+

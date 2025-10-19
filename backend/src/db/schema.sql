@@ -191,3 +191,4 @@ CREATE TRIGGER update_reviews_updated_at BEFORE UPDATE ON reviews
 CREATE TRIGGER update_blog_posts_updated_at BEFORE UPDATE ON blog_posts 
     FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
+

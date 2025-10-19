@@ -135,3 +135,4 @@
 ---
 
 Для полного списка изменений смотрите [commits](https://github.com/yourusername/mestoslov-mvp-site/commits/main)
+

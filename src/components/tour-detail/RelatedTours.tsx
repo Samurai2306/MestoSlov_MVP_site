@@ -59,3 +59,4 @@ const RelatedTours = ({ currentTourId, city }: RelatedToursProps) => {
 
 export default RelatedTours
 
+

@@ -131,3 +131,4 @@ const PurchasedTours = () => {
 
 export default PurchasedTours
 
+

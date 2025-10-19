@@ -63,3 +63,4 @@ router.get('/:id/points', (req, res) => {
 
 export default router
 
+

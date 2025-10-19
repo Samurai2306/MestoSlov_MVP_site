@@ -80,3 +80,4 @@ const AuthorCard = ({ author }: AuthorCardProps) => {
 
 export default AuthorCard
 
+

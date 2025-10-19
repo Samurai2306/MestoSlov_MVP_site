@@ -215,3 +215,4 @@ const ReviewsSection = ({ tourId }: ReviewsSectionProps) => {
 
 export default ReviewsSection
 
+

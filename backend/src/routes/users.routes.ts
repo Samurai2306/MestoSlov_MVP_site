@@ -60,3 +60,4 @@ router.delete('/favorites/:tourId', (req, res) => {
 
 export default router
 
+

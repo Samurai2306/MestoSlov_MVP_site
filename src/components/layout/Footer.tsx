@@ -1,41 +1,42 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Headphones, Mail, Phone, MapPin, Facebook, Instagram, Youtube, Twitter } from 'lucide-react'
+import { Headphones, Mail, Phone, MapPin } from 'lucide-react'
 
 const Footer = () => {
   const footerLinks = {
     platform: [
       { label: 'Как это работает', href: '/how-it-works' },
-      { label: 'Стать автором', href: '/become-author' },
-      { label: 'Цены', href: '/pricing' },
-      { label: 'Мобильное приложение', href: '/mobile-app' },
+      { label: 'Стать автором', href: '/author' },
+      { label: 'О нас', href: '/about' },
+      { label: 'Блог', href: '/blog' },
     ],
     explore: [
       { label: 'Все экскурсии', href: '/tours' },
-      { label: 'Популярные города', href: '/cities' },
-      { label: 'Авторы', href: '/authors' },
-      { label: 'Блог', href: '/blog' },
+      { label: 'Поиск', href: '/search' },
+      { label: 'Популярные', href: '/tours?sort=popular' },
+      { label: 'Новые', href: '/tours?sort=new' },
     ],
     support: [
-      { label: 'Помощь', href: '/help' },
+      { label: 'Помощь', href: '/faq' },
       { label: 'FAQ', href: '/faq' },
-      { label: 'Контакты', href: '/contacts' },
-      { label: 'Партнерам', href: '/partners' },
+      { label: 'Контакты', href: '/contact' },
+      { label: 'Поддержка', href: '/contact' },
     ],
     legal: [
       { label: 'Условия использования', href: '/terms' },
       { label: 'Политика конфиденциальности', href: '/privacy' },
-      { label: 'Публичная оферта', href: '/offer' },
     ],
   }
 
   const socialLinks = [
-    { icon: <Facebook className="w-5 h-5" />, href: '#', label: 'Facebook' },
-    { icon: <Instagram className="w-5 h-5" />, href: '#', label: 'Instagram' },
-    { icon: <Youtube className="w-5 h-5" />, href: '#', label: 'YouTube' },
-    { icon: <Twitter className="w-5 h-5" />, href: '#', label: 'Twitter' },
+    { icon: '/assets/imgAndLogo/icons8-vk.svg', href: 'https://vk.com/mestoslov', label: 'VK' },
+    { icon: '/assets/imgAndLogo/icons8-телеграм.svg', href: 'https://t.me/mestoslov', label: 'Telegram' },
+    { icon: '/assets/imgAndLogo/icons8-instagram.svg', href: 'https://instagram.com/mestoslov', label: 'Instagram' },
+    { icon: '/assets/imgAndLogo/icons8-facebook.svg', href: 'https://facebook.com/mestoslov', label: 'Facebook' },
+    { icon: '/assets/imgAndLogo/icons8-gmail.svg', href: 'mailto:hello@mestoslov.ru', label: 'Email' },
   ]
 
   return (
@@ -58,12 +59,20 @@ const Footer = () => {
                 <motion.a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
                   aria-label={social.label}
                 >
-                  {social.icon}
+                  <Image
+                    src={social.icon}
+                    alt={social.label}
+                    width={20}
+                    height={20}
+                    className="brightness-0 invert"
+                  />
                 </motion.a>
               ))}
             </div>
@@ -163,4 +172,5 @@ const Footer = () => {
 }
 
 export default Footer
+
 

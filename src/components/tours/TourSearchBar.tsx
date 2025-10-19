@@ -119,3 +119,4 @@ const TourSearchBar = () => {
 
 export default TourSearchBar
 
+
