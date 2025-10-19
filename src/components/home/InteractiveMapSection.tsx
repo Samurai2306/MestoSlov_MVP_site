@@ -32,7 +32,7 @@ const InteractiveMapSection = () => {
         <div className="relative max-w-7xl mx-auto bg-gradient-to-br from-primary-teal/5 via-white to-accent-amber/5 rounded-3xl p-8 shadow-2xl border border-white">
           <div className="relative w-full h-auto">
             <Image
-              src="assets/imgAndLogo/ru.svg"
+              src="/assets/imgAndLogo/ru.svg"
               alt="Карта России"
               width={1000}
               height={600}
