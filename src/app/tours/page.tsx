@@ -1,28 +1,42 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState, useMemo } from 'react'
 import { motion } from 'framer-motion'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '@/lib/store'
-import { setFilters, filterTours, setTours } from '@/lib/slices/toursSlice'
 import TourCard from '@/components/tours/TourCard'
 import TourFilters from '@/components/tours/TourFilters'
 import TourSearchBar from '@/components/tours/TourSearchBar'
 import { mockTours } from '@/lib/mockData'
 
 export default function ToursPage() {
-  const dispatch = useDispatch()
-  const { filteredTours, filters } = useSelector((state: RootState) => state.tours)
   const [sortBy, setSortBy] = useState('popular')
+  const [filters, setFilters] = useState({
+    city: '',
+    category: '',
+    duration: '',
+    search: ''
+  })
 
-  useEffect(() => {
-    // В реальном приложении здесь будет API запрос
-    dispatch(setTours(mockTours))
-  }, [dispatch])
-
-  useEffect(() => {
-    dispatch(filterTours())
-  }, [filters, dispatch])
+  const filteredTours = useMemo(() => {
+    let filtered = [...mockTours]
+    
+    if (filters.city) {
+      filtered = filtered.filter(tour => tour.city === filters.city)
+    }
+    
+    if (filters.category) {
+      filtered = filtered.filter(tour => tour.category === filters.category)
+    }
+    
+    if (filters.search) {
+      const search = filters.search.toLowerCase()
+      filtered = filtered.filter(tour => 
+        tour.title.toLowerCase().includes(search) ||
+        tour.description.toLowerCase().includes(search)
+      )
+    }
+    
+    return filtered
+  }, [filters])
 
   const sortOptions = [
     { value: 'popular', label: 'Популярные' },
@@ -165,7 +179,7 @@ export default function ToursPage() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => dispatch(setFilters({ city: '', category: '', duration: '', search: '' }))}
+                  onClick={() => setFilters({ city: '', category: '', duration: '', search: '' })}
                   className="px-6 py-3 bg-primary-teal text-white rounded-full font-medium"
                 >
                   Сбросить фильтры
