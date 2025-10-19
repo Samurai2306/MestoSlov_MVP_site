@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+// import { motion } from 'framer-motion' // Removed for static export
 import { Clock, User, Tag, ArrowLeft, Share2, Heart, Bookmark } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -222,10 +222,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
     <div className="min-h-screen bg-gradient-to-b from-primary-cream to-white pt-24 pb-16">
       <div className="container mx-auto px-4">
         {/* Back Button */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.4 }}
+        <div
           className="mb-8"
         >
           <Link 
@@ -235,42 +232,30 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
             <ArrowLeft className="w-5 h-5" />
             <span>Назад к блогу</span>
           </Link>
-        </motion.div>
+        </div>
 
         {/* Article Header */}
-        <motion.article
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+        <article
           className="max-w-4xl mx-auto"
         >
           {/* Category */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
+          <div
             className="mb-6"
           >
             <span className="inline-block px-4 py-2 bg-primary-teal text-white rounded-full text-sm font-medium">
               {post.category}
             </span>
-          </motion.div>
+          </div>
 
           {/* Title */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+          <h1
             className="text-4xl md:text-6xl font-bold text-primary-green mb-6"
           >
             {post.title}
-          </motion.h1>
+          </h1>
 
           {/* Meta Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+          <div
             className="flex flex-wrap items-center gap-6 text-gray-600 mb-8"
           >
             <span className="flex items-center space-x-2">
@@ -285,13 +270,10 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
               <Tag className="w-5 h-5" />
               <span>{post.publishedAt}</span>
             </span>
-          </motion.div>
+          </div>
 
           {/* Featured Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4 }}
+          <div
             className="relative h-96 md:h-[500px] rounded-3xl overflow-hidden mb-12"
           >
             <Image
@@ -300,22 +282,16 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
               fill
               className="object-cover"
             />
-          </motion.div>
+          </div>
 
           {/* Article Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
+          <div
             className="prose prose-lg max-w-none"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
           {/* Tags */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
+          <div
             className="mt-12"
           >
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Теги:</h3>
@@ -329,13 +305,10 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
                 </span>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Actions */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
+          <div
             className="flex items-center justify-between mt-12 pt-8 border-t border-gray-200"
           >
             <div className="flex items-center space-x-4">
@@ -352,8 +325,8 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
               <Share2 className="w-5 h-5" />
               <span>Поделиться</span>
             </button>
-          </motion.div>
-        </motion.article>
+          </div>
+        </article>
       </div>
     </div>
   )

@@ -194,7 +194,7 @@ export default function TourDetailClient() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <ReviewsSection tour={tour} />
+                  <ReviewsSection tourId={tour.id} />
                 </motion.div>
               )}
             </div>
@@ -235,7 +235,7 @@ export default function TourDetailClient() {
               <AuthorCard author={tour.author} />
               
               {/* Related Tours */}
-              <RelatedTours currentTourId={tour.id} />
+              <RelatedTours currentTourId={tour.id} city={tour.city} />
             </div>
           </div>
         </div>
