@@ -164,7 +164,7 @@ export default function TourDetailClient() {
                             {index + 1}
                           </div>
                           <div>
-                            <h4 className="font-semibold text-gray-900">{point.name}</h4>
+                            <h4 className="font-semibold text-gray-900">{point.title}</h4>
                             <p className="text-gray-600">{point.description}</p>
                           </div>
                         </div>
