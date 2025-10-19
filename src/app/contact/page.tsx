@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
+import SocialLinks from '@/components/common/SocialLinks'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -38,11 +40,7 @@ export default function ContactPage() {
 
   const contactInfo = [
     {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      ),
+      icon: '/assets/imgAndLogo/icons8-gmail.svg',
       title: 'Email',
       value: 'hello@mestoslov.ru',
       link: 'mailto:hello@mestoslov.ru',
@@ -58,14 +56,22 @@ export default function ContactPage() {
       link: 'tel:+74951234567',
     },
     {
-      icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z" />
-        </svg>
-      ),
+      icon: '/assets/imgAndLogo/icons8-телеграм.svg',
       title: 'Telegram',
       value: '@mestoslov',
       link: 'https://t.me/mestoslov',
+    },
+    {
+      icon: '/assets/imgAndLogo/icons8-vk.svg',
+      title: 'VK',
+      value: 'vk.com/mestoslov',
+      link: 'https://vk.com/mestoslov',
+    },
+    {
+      icon: '/assets/imgAndLogo/icons8-instagram.svg',
+      title: 'Instagram',
+      value: '@mestoslov',
+      link: 'https://instagram.com/mestoslov',
     },
     {
       icon: (
@@ -244,7 +250,17 @@ export default function ContactPage() {
                     className="flex items-start"
                   >
                     <div className="flex-shrink-0 w-12 h-12 bg-white rounded-xl flex items-center justify-center text-primary-teal shadow-md">
-                      {info.icon}
+                      {typeof info.icon === 'string' ? (
+                        <Image
+                          src={info.icon}
+                          alt={info.title}
+                          width={24}
+                          height={24}
+                          className="w-6 h-6"
+                        />
+                      ) : (
+                        info.icon
+                      )}
                     </div>
                     <div className="ml-4">
                       <h3 className="font-medium text-gray-900 mb-1">{info.title}</h3>
@@ -298,24 +314,7 @@ export default function ContactPage() {
               className="bg-gradient-to-br from-accent-amber/5 to-primary-teal/5 rounded-3xl p-8"
             >
               <h2 className="text-2xl font-bold mb-6">Следите за нами</h2>
-              <div className="flex gap-4">
-                {['telegram', 'vk', 'instagram', 'youtube'].map((social) => (
-                  <motion.a
-                    key={social}
-                    href={`https://${social}.com/mestoslov`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-primary-teal shadow-md hover:shadow-lg transition-shadow"
-                  >
-                    <span className="sr-only">{social}</span>
-                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                      <circle cx="12" cy="12" r="10" />
-                    </svg>
-                  </motion.a>
-                ))}
-              </div>
+              <SocialLinks />
             </motion.div>
           </div>
         </div>

@@ -1,9 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
-import { motion } from 'framer-motion'
 import { Headphones, Mail, Phone, MapPin } from 'lucide-react'
+import SocialLinks from '@/components/common/SocialLinks'
 
 const Footer = () => {
   const footerLinks = {
@@ -31,13 +30,6 @@ const Footer = () => {
     ],
   }
 
-  const socialLinks = [
-    { icon: '/assets/imgAndLogo/icons8-vk.svg', href: 'https://vk.com/mestoslov', label: 'VK' },
-    { icon: '/assets/imgAndLogo/icons8-телеграм.svg', href: 'https://t.me/mestoslov', label: 'Telegram' },
-    { icon: '/assets/imgAndLogo/icons8-instagram.svg', href: 'https://instagram.com/mestoslov', label: 'Instagram' },
-    { icon: '/assets/imgAndLogo/icons8-facebook.svg', href: 'https://facebook.com/mestoslov', label: 'Facebook' },
-    { icon: '/assets/imgAndLogo/icons8-gmail.svg', href: 'mailto:hello@mestoslov.ru', label: 'Email' },
-  ]
 
   return (
     <footer className="bg-primary-green text-white pt-16 pb-8">
@@ -54,28 +46,7 @@ const Footer = () => {
             <p className="text-gray-300 mb-6">
               Аутентичная Россия через личные аудиорассказы местных жителей
             </p>
-            <div className="flex space-x-3">
-              {socialLinks.map((social) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
-                  aria-label={social.label}
-                >
-                  <Image
-                    src={social.icon}
-                    alt={social.label}
-                    width={20}
-                    height={20}
-                    className="brightness-0 invert"
-                  />
-                </motion.a>
-              ))}
-            </div>
+            <SocialLinks />
           </div>
 
           {/* Links */}

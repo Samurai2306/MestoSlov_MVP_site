@@ -4,8 +4,10 @@ import { motion } from 'framer-motion'
 import { Clock, User, Tag, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 
 export default function BlogPage() {
+  const [selectedCategory, setSelectedCategory] = useState('Все статьи')
   const featuredPost = {
     id: 1,
     title: 'Как создать идеальную аудиоэкскурсию: гид для начинающих авторов',
@@ -79,6 +81,10 @@ export default function BlogPage() {
     'Технологии',
   ]
 
+  const filteredPosts = selectedCategory === 'Все статьи' 
+    ? posts 
+    : posts.filter(post => post.category === selectedCategory)
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-cream to-white pt-24 pb-16">
       <div className="container mx-auto px-4">
@@ -95,25 +101,6 @@ export default function BlogPage() {
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Истории, советы и вдохновение для путешествий по России
           </p>
-        </motion.div>
-
-        {/* Categories */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
-        >
-          {categories.map((category) => (
-            <motion.button
-              key={category}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-2 bg-white rounded-full font-medium shadow-elevation hover:shadow-glow transition-all text-gray-700 hover:text-primary-teal"
-            >
-              {category}
-            </motion.button>
-          ))}
         </motion.div>
 
         {/* Featured Post */}
@@ -162,9 +149,33 @@ export default function BlogPage() {
           </Link>
         </motion.div>
 
+        {/* Categories */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="flex flex-wrap justify-center gap-3 mb-12"
+        >
+          {categories.map((category) => (
+            <motion.button
+              key={category}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-6 py-2 rounded-full font-medium shadow-elevation hover:shadow-glow transition-all ${
+                selectedCategory === category
+                  ? 'bg-primary-teal text-white'
+                  : 'bg-white text-gray-700 hover:text-primary-teal'
+              }`}
+            >
+              {category}
+            </motion.button>
+          ))}
+        </motion.div>
+
         {/* Posts Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map((post, index) => (
+          {filteredPosts.map((post, index) => (
             <motion.div
               key={post.id}
               initial={{ opacity: 0, y: 30 }}

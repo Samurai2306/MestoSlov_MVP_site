@@ -1,303 +1,344 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { Clock, User, Tag, ArrowLeft, Share2, Heart, Bookmark } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useParams } from 'next/navigation'
+import { notFound } from 'next/navigation'
 
-export default function BlogPostPage() {
-  const params = useParams()
-  const postId = params.id
+interface BlogPost {
+  id: number
+  title: string
+  content: string
+  excerpt: string
+  image: string
+  author: string
+  category: string
+  readTime: number
+  publishedAt: string
+  tags: string[]
+  likes: number
+  isLiked: boolean
+  isBookmarked: boolean
+}
 
-  // Mock данные для примера
-  const post = {
-    id: postId,
-    title: '10 скрытых жемчужин Петербурга',
-    subtitle: 'Места, о которых не пишут в путеводителях',
-    author: {
-      name: 'Елена Иванова',
-      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400',
-      bio: 'Петербурженка со стажем, автор 15+ экскурсий',
-    },
-    date: '15 октября 2024',
-    readTime: '8 мин',
-    category: 'Путешествия',
-    image: 'https://images.unsplash.com/photo-1556543221-d86814f3d076?w=1200',
+// Mock data for blog posts
+const blogPosts: BlogPost[] = [
+  {
+    id: 1,
+    title: 'Как создать идеальную аудиоэкскурсию: гид для начинающих авторов',
     content: `
-      <p>Санкт-Петербург — город с богатой историей и культурой. Но даже коренные жители не всегда знают о всех его секретах...</p>
+      <p>Создание качественной аудиоэкскурсии — это искусство, которое требует не только глубоких знаний о месте, но и понимания того, как удержать внимание слушателя на протяжении всего маршрута.</p>
       
-      <h2>1. Двор-колодец на Московском проспекте</h2>
-      <p>Один из самых атмосферных дворов-колодцев находится в доме номер 112. Это место словно застыло во времени...</p>
+      <h2>1. Планирование маршрута</h2>
+      <p>Первый шаг — это тщательное планирование. Пройдитесь по маршруту пешком, отметьте ключевые точки, определите логическую последовательность рассказа. Помните: хорошая экскурсия — это история с началом, серединой и концом.</p>
       
-      <h2>2. Музей-квартира Набокова</h2>
-      <p>В отличие от переполненного музея Достоевского, квартира Набокова на Большой Морской редко бывает переполнена туристами...</p>
+      <h2>2. Подготовка контента</h2>
+      <p>Исследуйте историю места, найдите интересные факты, легенды, малоизвестные детали. Ваша задача — не просто пересказать информацию из Википедии, а создать уникальный контент, который заинтересует слушателей.</p>
+      
+      <h2>3. Техническая сторона</h2>
+      <p>Качество звука критически важно. Используйте хороший микрофон, записывайте в тихом месте, следите за уровнем громкости. Помните: слушатель может простить несовершенный контент, но плохое качество звука — никогда.</p>
+      
+      <h2>4. Структура рассказа</h2>
+      <p>Начните с интригующего вступления, развивайте тему постепенно, используйте переходы между точками. Заканчивайте на высокой ноте — оставьте слушателя с желанием узнать больше.</p>
+      
+      <h2>5. Тестирование и улучшение</h2>
+      <p>Протестируйте экскурсию на друзьях или коллегах. Соберите обратную связь, внесите корректировки. Помните: даже опытные авторы переписывают свои работы несколько раз.</p>
     `,
-    tags: ['Санкт-Петербург', 'Достопримечательности', 'Секретные места'],
-    views: 1250,
-    likes: 89,
-    comments: 23,
+    excerpt: 'Подробное руководство по созданию увлекательных аудиоэкскурсий, которые понравятся путешественникам',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800',
+    author: 'Анна Петрова',
+    category: 'Для авторов',
+    readTime: 8,
+    publishedAt: '15 января 2024',
+    tags: ['аудиоэкскурсии', 'создание контента', 'советы авторам'],
+    likes: 42,
+    isLiked: false,
+    isBookmarked: false
+  },
+  {
+    id: 2,
+    title: '10 секретных мест Петербурга, которые стоит посетить',
+    content: `
+      <p>Санкт-Петербург — город, который никогда не перестает удивлять. За парадными фасадами Невского проспекта скрываются удивительные места, о которых знают только местные жители.</p>
+      
+      <h2>1. Двор-колодец на Мойке</h2>
+      <p>Спрятанный во дворе дома на Мойке, 28, этот удивительный двор-колодец создает ощущение, что вы попали в другую эпоху. Высокие стены, узкие проходы, атмосфера старого Петербурга.</p>
+      
+      <h2>2. Парк Екатерингоф</h2>
+      <p>Один из старейших парков города, основанный Петром I. Здесь сохранились уникальные постройки XVIII века и удивительная атмосфера императорской резиденции.</p>
+      
+      <h2>3. Дом с башнями</h2>
+      <p>Необычное здание на площади Льва Толстого, построенное в стиле северного модерна. Башни, напоминающие средневековые крепости, создают неповторимый облик.</p>
+      
+      <h2>4. Дворы Капеллы</h2>
+      <p>Скрытые от глаз туристов дворы с уникальной архитектурой и атмосферой старого Петербурга. Здесь время словно остановилось.</p>
+      
+      <h2>5. Парк 300-летия Санкт-Петербурга</h2>
+      <p>Современный парк с удивительными видами на Финский залив. Отличное место для прогулок и фотосессий.</p>
+    `,
+    excerpt: 'Малоизвестные локации с богатой историей',
+    image: 'https://images.unsplash.com/photo-1555991438-b87d68cb3e1f?w=400',
+    author: 'Дмитрий Соколов',
+    category: 'Путешествия',
+    readTime: 5,
+    publishedAt: '12 января 2024',
+    tags: ['Петербург', 'секретные места', 'достопримечательности'],
+    likes: 38,
+    isLiked: false,
+    isBookmarked: false
+  },
+  {
+    id: 3,
+    title: 'История московского метро: от первых станций до наших дней',
+    content: `
+      <p>Московское метро — это не просто транспортная система, это подземный музей, где каждая станция рассказывает свою историю.</p>
+      
+      <h2>Первые станции</h2>
+      <p>Сокольническая линия, открытая в 1935 году, стала первой в истории московского метро. Станции "Сокольники", "Красносельская", "Комсомольская" — каждая из них уникальна.</p>
+      
+      <h2>Архитектурные шедевры</h2>
+      <p>Станция "Маяковская" с мозаиками Дейнеки, "Площадь Революции" со скульптурами Манизера, "Кропоткинская" в стиле ар-деко — каждая станция — произведение искусства.</p>
+      
+      <h2>Современные станции</h2>
+      <p>Новые станции продолжают традиции, сочетая современные технологии с классической архитектурой. "Солнцево", "Новокосино", "Бунинская аллея" — примеры современного подхода к дизайну.</p>
+    `,
+    excerpt: 'Увлекательный рассказ о подземном дворце столицы',
+    image: 'https://images.unsplash.com/photo-1547448415-e9f5b28e570d?w=400',
+    author: 'Елена Волкова',
+    category: 'История',
+    readTime: 12,
+    publishedAt: '10 января 2024',
+    tags: ['Москва', 'метро', 'архитектура', 'история'],
+    likes: 56,
+    isLiked: false,
+    isBookmarked: false
+  },
+  {
+    id: 4,
+    title: 'Как монетизировать свои знания о городе',
+    content: `
+      <p>Ваши знания о родном городе могут стать источником дохода. Рассказываем, как превратить любовь к своему городу в прибыльное дело.</p>
+      
+      <h2>Создание уникального контента</h2>
+      <p>Главное — найти свою нишу. Что вы знаете о своем городе лучше других? Какие места, истории, легенды известны только вам?</p>
+      
+      <h2>Платформы для монетизации</h2>
+      <p>МестоСлов — идеальная платформа для авторов аудиоэкскурсий. Здесь вы можете создавать, публиковать и продавать свои маршруты.</p>
+      
+      <h2>Ценообразование</h2>
+      <p>Стоимость экскурсии зависит от уникальности контента, качества записи и популярности маршрута. Начните с доступных цен и повышайте их по мере роста популярности.</p>
+    `,
+    excerpt: 'Практические советы по созданию и продвижению аудиоэкскурсий',
+    image: 'https://images.unsplash.com/photo-1513326738677-b964603b136d?w=400',
+    author: 'Михаил Уральский',
+    category: 'Для авторов',
+    readTime: 7,
+    publishedAt: '8 января 2024',
+    tags: ['монетизация', 'авторство', 'доход', 'контент'],
+    likes: 29,
+    isLiked: false,
+    isBookmarked: false
+  },
+  {
+    id: 5,
+    title: 'Золотое кольцо: маршрут на выходные',
+    content: `
+      <p>Золотое кольцо России — это уникальная возможность за выходные погрузиться в историю Древней Руси и насладиться красотой белокаменной архитектуры.</p>
+      
+      <h2>День 1: Владимир</h2>
+      <p>Начните с Владимира — древней столицы Северо-Восточной Руси. Успенский собор, Золотые ворота, Дмитриевский собор — каждый памятник рассказывает свою историю.</p>
+      
+      <h2>День 2: Суздаль</h2>
+      <p>Суздаль — это музей под открытым небом. Кремль, монастыри, деревянная архитектура — здесь время остановилось.</p>
+      
+      <h2>Практические советы</h2>
+      <p>Лучшее время для поездки — май-сентябрь. Забронируйте отель заранее, особенно в выходные. Не забудьте взять удобную обувь — много ходьбы!</p>
+    `,
+    excerpt: 'Оптимальный план посещения древних городов России',
+    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=400',
+    author: 'Светлана Морская',
+    category: 'Маршруты',
+    readTime: 10,
+    publishedAt: '5 января 2024',
+    tags: ['Золотое кольцо', 'Владимир', 'Суздаль', 'выходные'],
+    likes: 45,
+    isLiked: false,
+    isBookmarked: false
+  },
+  {
+    id: 6,
+    title: 'Технологии в туризме: будущее аудиоэкскурсий',
+    content: `
+      <p>Технологии кардинально меняют индустрию туризма. AR, VR, искусственный интеллект — что ждет нас в будущем?</p>
+      
+      <h2>Дополненная реальность</h2>
+      <p>AR-очки позволят видеть исторические события прямо на улицах города. Представьте: вы идете по Красной площади и видите, как она выглядела 100 лет назад.</p>
+      
+      <h2>Виртуальная реальность</h2>
+      <p>VR-экскурсии позволят "побывать" в местах, недоступных для обычных туристов. Заглянуть в закрытые дворцы, пройти по древним улицам.</p>
+      
+      <h2>Искусственный интеллект</h2>
+      <p>ИИ будет создавать персонализированные экскурсии на основе ваших интересов и предпочтений. Уникальный маршрут для каждого путешественника.</p>
+    `,
+    excerpt: 'AR, VR и другие инновации в индустрии путешествий',
+    image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400',
+    author: 'Рустам Ахметов',
+    category: 'Технологии',
+    readTime: 6,
+    publishedAt: '3 января 2024',
+    tags: ['технологии', 'AR', 'VR', 'будущее'],
+    likes: 33,
+    isLiked: false,
+    isBookmarked: false
+  }
+]
+
+export default function BlogPostPage({ params }: { params: { id: string } }) {
+  const postId = parseInt(params.id)
+  const post = blogPosts.find(p => p.id === postId)
+
+  if (!post) {
+    notFound()
   }
 
-  const relatedPosts = [
-    {
-      id: '2',
-      title: 'Где поесть в Москве: гид по локальной кухне',
-      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400',
-      category: 'Еда',
-      readTime: '5 мин',
-    },
-    {
-      id: '3',
-      title: 'Как создать идеальную аудиоэкскурсию',
-      image: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=400',
-      category: 'Советы',
-      readTime: '10 мин',
-    },
-    {
-      id: '4',
-      title: 'Топ-5 маршрутов для осенних прогулок',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400',
-      category: 'Маршруты',
-      readTime: '7 мин',
-    },
-  ]
-
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Image */}
-      <div className="relative h-[60vh] overflow-hidden">
-        <Image
-          src={post.image}
-          alt={post.title}
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-
-        {/* Breadcrumbs */}
-        <div className="absolute top-8 left-4 md:left-8 z-10">
-          <div className="flex items-center gap-2 text-white/80 text-sm">
-            <Link href="/" className="hover:text-white transition-colors">
-              Главная
-            </Link>
-            <span>/</span>
-            <Link href="/blog" className="hover:text-white transition-colors">
-              Блог
-            </Link>
-            <span>/</span>
-            <span className="text-white">{post.category}</span>
-          </div>
-        </div>
-
-        {/* Title Overlay */}
+    <div className="min-h-screen bg-gradient-to-b from-primary-cream to-white pt-24 pb-16">
+      <div className="container mx-auto px-4">
+        {/* Back Button */}
         <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4 }}
+          className="mb-8"
+        >
+          <Link 
+            href="/blog"
+            className="inline-flex items-center space-x-2 text-primary-teal hover:text-primary-green transition-colors"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            <span>Назад к блогу</span>
+          </Link>
+        </motion.div>
+
+        {/* Article Header */}
+        <motion.article
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="absolute bottom-0 left-0 right-0 p-8 md:p-12"
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto"
         >
-          <div className="max-w-4xl mx-auto">
-            <div className="inline-block px-4 py-2 bg-accent-amber rounded-full text-sm font-medium mb-4">
+          {/* Category */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="mb-6"
+          >
+            <span className="inline-block px-4 py-2 bg-primary-teal text-white rounded-full text-sm font-medium">
               {post.category}
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-              {post.title}
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90">{post.subtitle}</p>
-          </div>
-        </motion.div>
-      </div>
+            </span>
+          </motion.div>
 
-      {/* Content */}
-      <div className="max-w-4xl mx-auto px-4 py-12">
-        {/* Meta */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="flex flex-wrap items-center gap-6 pb-8 border-b border-gray-200 mb-8"
-        >
-          <div className="flex items-center gap-3">
-            <div className="relative w-12 h-12 rounded-full overflow-hidden">
-              <Image src={post.author.avatar} alt={post.author.name} fill className="object-cover" />
-            </div>
-            <div>
-              <div className="font-medium text-gray-900">{post.author.name}</div>
-              <div className="text-sm text-gray-600">{post.author.bio}</div>
-            </div>
-          </div>
+          {/* Title */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-4xl md:text-6xl font-bold text-primary-green mb-6"
+          >
+            {post.title}
+          </motion.h1>
 
-          <div className="flex items-center gap-6 text-sm text-gray-600 ml-auto">
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-              {post.date}
+          {/* Meta Info */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="flex flex-wrap items-center gap-6 text-gray-600 mb-8"
+          >
+            <span className="flex items-center space-x-2">
+              <User className="w-5 h-5" />
+              <span>{post.author}</span>
+            </span>
+            <span className="flex items-center space-x-2">
+              <Clock className="w-5 h-5" />
+              <span>{post.readTime} мин чтения</span>
+            </span>
+            <span className="flex items-center space-x-2">
+              <Tag className="w-5 h-5" />
+              <span>{post.publishedAt}</span>
+            </span>
+          </motion.div>
+
+          {/* Featured Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4 }}
+            className="relative h-96 md:h-[500px] rounded-3xl overflow-hidden mb-12"
+          >
+            <Image
+              src={post.image}
+              alt={post.title}
+              fill
+              className="object-cover"
+            />
+          </motion.div>
+
+          {/* Article Content */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="prose prose-lg max-w-none"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
+
+          {/* Tags */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="mt-12"
+          >
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Теги:</h3>
+            <div className="flex flex-wrap gap-2">
+              {post.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                >
+                  #{tag}
+                </span>
+              ))}
             </div>
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              {post.readTime}
+          </motion.div>
+
+          {/* Actions */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7 }}
+            className="flex items-center justify-between mt-12 pt-8 border-t border-gray-200"
+          >
+            <div className="flex items-center space-x-4">
+              <button className="flex items-center space-x-2 text-gray-600 hover:text-red-500 transition-colors">
+                <Heart className="w-5 h-5" />
+                <span>{post.likes}</span>
+              </button>
+              <button className="flex items-center space-x-2 text-gray-600 hover:text-primary-teal transition-colors">
+                <Bookmark className="w-5 h-5" />
+                <span>Сохранить</span>
+              </button>
             </div>
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                />
-              </svg>
-              {post.views}
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Article Content */}
-        <motion.article
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="prose prose-lg max-w-none mb-12"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
-
-        {/* Tags */}
-        <div className="flex flex-wrap gap-3 mb-12">
-          {post.tags.map((tag) => (
-            <Link
-              key={tag}
-              href={`/blog?tag=${tag}`}
-              className="px-4 py-2 bg-primary-cream rounded-full text-sm text-gray-700 hover:bg-primary-teal hover:text-white transition-colors"
-            >
-              #{tag}
-            </Link>
-          ))}
-        </div>
-
-        {/* Share & Like */}
-        <div className="flex items-center justify-between py-8 border-y border-gray-200 mb-12">
-          <div className="flex items-center gap-4">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-teal to-accent-amber text-white rounded-xl font-medium"
-            >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-              </svg>
-              Нравится ({post.likes})
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-6 py-3 border-2 border-gray-300 rounded-xl font-medium hover:border-primary-teal transition-colors"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                />
-              </svg>
-              Комментарии ({post.comments})
-            </motion.button>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <span className="text-gray-600 text-sm">Поделиться:</span>
-            {['vk', 'telegram', 'twitter'].map((social) => (
-              <motion.button
-                key={social}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary-teal hover:text-white transition-colors"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10" />
-                </svg>
-              </motion.button>
-            ))}
-          </div>
-        </div>
-
-        {/* Author Card */}
-        <div className="bg-gradient-to-br from-primary-teal/5 to-accent-amber/5 rounded-3xl p-8 mb-16">
-          <div className="flex items-center gap-6">
-            <div className="relative w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
-              <Image src={post.author.avatar} alt={post.author.name} fill className="object-cover" />
-            </div>
-            <div className="flex-1">
-              <h3 className="text-2xl font-bold mb-2">{post.author.name}</h3>
-              <p className="text-gray-600 mb-4">{post.author.bio}</p>
-              <Link
-                href={`/author/${post.author.name}`}
-                className="text-primary-teal hover:underline font-medium"
-              >
-                Посмотреть все статьи →
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Related Posts */}
-        <div>
-          <h2 className="text-3xl font-bold mb-8">Вам также может понравиться</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {relatedPosts.map((relatedPost, index) => (
-              <motion.div
-                key={relatedPost.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="group"
-              >
-                <Link href={`/blog/${relatedPost.id}`}>
-                  <div className="relative h-48 rounded-2xl overflow-hidden mb-4">
-                    <Image
-                      src={relatedPost.image}
-                      alt={relatedPost.title}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-white rounded-full text-sm font-medium">
-                        {relatedPost.category}
-                      </span>
-                    </div>
-                  </div>
-                  <h3 className="text-lg font-bold mb-2 group-hover:text-primary-teal transition-colors">
-                    {relatedPost.title}
-                  </h3>
-                  <div className="text-sm text-gray-600">{relatedPost.readTime}</div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+            <button className="flex items-center space-x-2 text-gray-600 hover:text-primary-teal transition-colors">
+              <Share2 className="w-5 h-5" />
+              <span>Поделиться</span>
+            </button>
+          </motion.div>
+        </motion.article>
       </div>
     </div>
   )
 }
-
-

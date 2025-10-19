@@ -138,4 +138,9 @@ body {
   animation: gradient 3s ease infinite;
 }
 
+/* Radial gradient utility */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
 

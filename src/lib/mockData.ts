@@ -12,7 +12,7 @@ export const mockTours: Tour[] = [
     price: 499,
     rating: 4.9,
     reviewsCount: 234,
-    image: 'https://images.unsplash.com/photo-1555991438-b87d68cb3e1f?w=600',
+    image: 'assets/imgAndLogo/SanktPetersburg.jpg',
     author: {
       id: 'author-1',
       name: 'Анна Петрова',
@@ -37,7 +37,7 @@ export const mockTours: Tour[] = [
     price: 799,
     rating: 4.7,
     reviewsCount: 156,
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600',
+    image: 'assets/imgAndLogo/Zolotoe_Kotsojpg.jpg',
     author: {
       id: 'author-11',
       name: 'Елена Волкова',
@@ -62,7 +62,7 @@ export const mockTours: Tour[] = [
     price: 599,
     rating: 4.8,
     reviewsCount: 203,
-    image: 'https://images.unsplash.com/photo-1594736797933-d0d0b0a4b4b4?w=600',
+    image: 'assets/imgAndLogo/Kazan.jpg',
     author: {
       id: 'author-12',
       name: 'Рустам Галеев',
@@ -87,7 +87,7 @@ export const mockTours: Tour[] = [
     price: 699,
     rating: 4.6,
     reviewsCount: 134,
-    image: 'https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=600',
+    image: 'assets/imgAndLogo/Ekaterinburg.jpg',
     author: {
       id: 'author-13',
       name: 'Алексей Уралов',
@@ -112,7 +112,7 @@ export const mockTours: Tour[] = [
     price: 549,
     rating: 4.5,
     reviewsCount: 98,
-    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600',
+    image: 'assets/imgAndLogo/Krasnoyarsk.jpg',
     author: {
       id: 'author-14',
       name: 'Мария Сибирская',
@@ -137,7 +137,7 @@ export const mockTours: Tour[] = [
     price: 899,
     rating: 4.9,
     reviewsCount: 87,
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600',
+    image: 'assets/imgAndLogo/Vladivostok.jpg',
     author: {
       id: 'author-15',
       name: 'Игорь Морской',
@@ -162,7 +162,7 @@ export const mockTours: Tour[] = [
     price: 499,
     rating: 4.4,
     reviewsCount: 112,
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600',
+    image: 'assets/imgAndLogo/Krasnodar.jpg',
     author: {
       id: 'author-16',
       name: 'Светлана Кубанская',
@@ -187,7 +187,7 @@ export const mockTours: Tour[] = [
     price: 599,
     rating: 4.6,
     reviewsCount: 89,
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600',
+    image: 'assets/imgAndLogo/Rostov_na_donu.jpg',
     author: {
       id: 'author-17',
       name: 'Дмитрий Донской',
@@ -212,7 +212,7 @@ export const mockTours: Tour[] = [
     price: 699,
     rating: 4.8,
     reviewsCount: 145,
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600',
+    image: 'assets/imgAndLogo/Volgograd.jpg',
     author: {
       id: 'author-18',
       name: 'Александр Волжский',
@@ -237,7 +237,7 @@ export const mockTours: Tour[] = [
     price: 649,
     rating: 4.5,
     reviewsCount: 76,
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600',
+    image: 'assets/imgAndLogo/Krasnoyarsk.jpg',
     author: {
       id: 'author-19',
       name: 'Елена Красноярская',
@@ -262,7 +262,7 @@ export const mockTours: Tour[] = [
     price: 549,
     rating: 4.4,
     reviewsCount: 93,
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600',
+    image: 'assets/imgAndLogo/Perm.jpg',
     author: {
       id: 'author-20',
       name: 'Анна Пермская',
@@ -287,7 +287,7 @@ export const mockTours: Tour[] = [
     price: 599,
     rating: 4.8,
     reviewsCount: 189,
-    image: 'https://images.unsplash.com/photo-1547448415-e9f5b28e570d?w=600',
+    image: 'assets/imgAndLogo/Moskov_metro.jpg',
     author: {
       id: 'author-2',
       name: 'Дмитрий Соколов',
@@ -337,7 +337,7 @@ export const mockTours: Tour[] = [
     price: 699,
     rating: 4.9,
     reviewsCount: 201,
-    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=600',
+    image: 'assets/imgAndLogo/Kazan_legendi.jpg',
     author: {
       id: 'author-4',
       name: 'Рустам Ахметов',
@@ -362,7 +362,7 @@ export const mockTours: Tour[] = [
     price: 549,
     rating: 4.7,
     reviewsCount: 145,
-    image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600',
+    image: 'assets/imgAndLogo/Ekaterinburg.jpg',
     author: {
       id: 'author-5',
       name: 'Михаил Уральский',
