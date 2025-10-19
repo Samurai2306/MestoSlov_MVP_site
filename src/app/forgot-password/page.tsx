@@ -68,7 +68,7 @@ export default function ForgotPasswordPage() {
                 Письмо отправлено на <strong>{email}</strong>
               </p>
               <p className="text-sm text-gray-500 mb-6">
-                Не получили письмо? Проверьте папку "Спам" или попробуйте снова
+                Не получили письмо? Проверьте папку &quot;Спам&quot; или попробуйте снова
               </p>
               <div className="space-y-3">
                 <button

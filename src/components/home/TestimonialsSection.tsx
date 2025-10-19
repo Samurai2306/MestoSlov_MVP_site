@@ -106,7 +106,7 @@ const TestimonialsSection = () => {
 
                   {/* Testimonial Text */}
                   <p className="text-gray-700 leading-relaxed mb-6 text-lg">
-                    "{testimonial.text}"
+                    &ldquo;{testimonial.text}&rdquo;
                   </p>
 
                   {/* Tour Info */}
