@@ -16,6 +16,15 @@ import RelatedTours from '@/components/tour-detail/RelatedTours'
 import { mockTours } from '@/lib/mockData'
 import { Tour } from '@/types'
 
+// Generate static params for all tours
+export async function generateStaticParams() {
+  const tours = mockTours.map(tour => ({
+    id: tour.id
+  }))
+  
+  return tours
+}
+
 export default function TourDetailPage() {
   const params = useParams()
   const [tour, setTour] = useState<Tour | null>(null)
