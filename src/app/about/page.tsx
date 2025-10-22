@@ -19,15 +19,15 @@ export default function AboutPage() {
     },
     {
       name: 'Ира',
-      role: '',
+      role: 'CEO',
       image: '/assets/imgAndLogo/Kazan_legendi.jpg',
-      bio: ''
+      bio: 'Помощница красотки'
     },
     {
       name: 'Софья Собещанская',
-      role: 'CEO & Основатель & тигрица❤️',
+      role: 'Основатель',
       image: '/assets/imgAndLogo/4.jpg',
-      bio: 'Создатель концепции,идеи проекта и просто моя красотка'
+      bio: 'Создатель концепции,идеи проекта и просто красотка'
     },
   ]
 
