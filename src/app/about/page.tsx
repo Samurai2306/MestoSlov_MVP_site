@@ -18,10 +18,10 @@ export default function AboutPage() {
       bio: 'Разработчик и технический энтузиаст'
     },
     {
-      name: 'Чернов Глеб',
-      role: 'Главный редактор, дизайнер и художник',
-      image: '/assets/imgAndLogo/3.jpg',
-      bio: 'Да да действительно, он ахуенен'
+      name: 'Ира',
+      role: '',
+      image: '/assets/imgAndLogo/Kazan_legendi.jpg',
+      bio: ''
     },
     {
       name: 'Софья Собещанская',
