@@ -5,7 +5,7 @@ const nextConfig = {
   trailingSlash: true,
   basePath: '/MestoSlov_MVP_site',
   images: {
-    domains: ['res.cloudinary.com', 'images.unsplash.com'],
+    domains: ['res.cloudinary.com', 'images.unsplash.com', 'drive.google.com'],
     unoptimized: true,
   },
   webpack: (config) => {

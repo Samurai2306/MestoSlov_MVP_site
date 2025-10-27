@@ -12,7 +12,7 @@ export const mockTours: Tour[] = [
     price: 499,
     rating: 4.9,
     reviewsCount: 234,
-    image: 'assets/imgAndLogo/SanktPetersburg.jpg',
+    image: 'https://drive.google.com/uc?export=download&id=1dGqbHj95uQ15XUJOOCfodFj93vspvF-6',
     author: {
       id: 'author-1',
       name: 'Анна Петрова',
@@ -37,7 +37,7 @@ export const mockTours: Tour[] = [
     price: 799,
     rating: 4.7,
     reviewsCount: 156,
-    image: 'assets/imgAndLogo/Zolotoe_Kotsojpg.jpg',
+    image: 'https://drive.google.com/uc?export=download&id=1WiLB26K8GyunKO8V_4X7J2_Py0xFSKKX',
     author: {
       id: 'author-11',
       name: 'Елена Волкова',
@@ -62,7 +62,7 @@ export const mockTours: Tour[] = [
     price: 599,
     rating: 4.8,
     reviewsCount: 203,
-    image: 'assets/imgAndLogo/Kazan.jpg',
+    image: 'https://drive.google.com/uc?export=download&id=1CYQ6H1nFztmOhhNPToY_oXBrU_iR5dsR',
     author: {
       id: 'author-12',
       name: 'Рустам Галеев',
@@ -87,7 +87,7 @@ export const mockTours: Tour[] = [
     price: 699,
     rating: 4.6,
     reviewsCount: 134,
-    image: 'assets/imgAndLogo/Ekaterinburg.jpg',
+    image: 'https://drive.google.com/uc?export=download&id=1mPkd5MbvXPqaq5DhD8ijQdNafh4mYXjv',
     author: {
       id: 'author-13',
       name: 'Алексей Уралов',
@@ -112,7 +112,7 @@ export const mockTours: Tour[] = [
     price: 549,
     rating: 4.5,
     reviewsCount: 98,
-    image: 'assets/imgAndLogo/Krasnoyarsk.jpg',
+    image: 'https://drive.google.com/uc?export=download&id=1q0Z4_Oo_0uq5xK80aXP1ach4qmrHsjX7',
     author: {
       id: 'author-14',
       name: 'Мария Сибирская',
@@ -137,7 +137,7 @@ export const mockTours: Tour[] = [
     price: 899,
     rating: 4.9,
     reviewsCount: 87,
-    image: 'assets/imgAndLogo/Vladivostok.jpg',
+    image: 'https://drive.google.com/uc?export=download&id=1WvYNoXElf8yKVIp7YljA0wS9KiK3c4Lq',
     author: {
       id: 'author-15',
       name: 'Игорь Морской',
@@ -162,7 +162,7 @@ export const mockTours: Tour[] = [
     price: 499,
     rating: 4.4,
     reviewsCount: 112,
-    image: 'assets/imgAndLogo/Krasnodar.jpg',
+    image: 'https://drive.google.com/uc?export=download&id=1_NgHd1GsDGB6OQsrkma5V2yAI37wMv3a',
     author: {
       id: 'author-16',
       name: 'Светлана Кубанская',
@@ -187,7 +187,7 @@ export const mockTours: Tour[] = [
     price: 599,
     rating: 4.6,
     reviewsCount: 89,
-    image: 'assets/imgAndLogo/Rostov_na_donu.jpg',
+    image: 'https://drive.google.com/uc?export=download&id=1WqJ1IN-zzxSYmdkLgO7LQrUKS5gpWD5l',
     author: {
       id: 'author-17',
       name: 'Дмитрий Донской',
@@ -212,7 +212,7 @@ export const mockTours: Tour[] = [
     price: 699,
     rating: 4.8,
     reviewsCount: 145,
-    image: 'assets/imgAndLogo/Volgograd.jpg',
+    image: 'https://drive.google.com/uc?export=download&id=12Eelqf_pDtjJ68susyxpxgc9-_y2L4gu',
     author: {
       id: 'author-18',
       name: 'Александр Волжский',
@@ -237,7 +237,7 @@ export const mockTours: Tour[] = [
     price: 649,
     rating: 4.5,
     reviewsCount: 76,
-    image: 'assets/imgAndLogo/Krasnoyarsk.jpg',
+    image: 'https://drive.google.com/uc?export=download&id=1q0Z4_Oo_0uq5xK80aXP1ach4qmrHsjX7',
     author: {
       id: 'author-19',
       name: 'Елена Красноярская',
@@ -262,7 +262,7 @@ export const mockTours: Tour[] = [
     price: 549,
     rating: 4.4,
     reviewsCount: 93,
-    image: 'assets/imgAndLogo/Perm.jpg',
+    image: 'https://drive.google.com/uc?export=download&id=1ZK12VVmSPGFPGWCFCGIH-CVuf8EVOYW3',
     author: {
       id: 'author-20',
       name: 'Анна Пермская',
@@ -287,7 +287,7 @@ export const mockTours: Tour[] = [
     price: 599,
     rating: 4.8,
     reviewsCount: 189,
-    image: 'assets/imgAndLogo/Moskov_metro.jpg',
+    image: 'https://drive.google.com/uc?export=download&id=1mLSdsxl2Ytvn9DAzr1RALM9keuqVQazL',
     author: {
       id: 'author-2',
       name: 'Дмитрий Соколов',
@@ -337,7 +337,7 @@ export const mockTours: Tour[] = [
     price: 699,
     rating: 4.9,
     reviewsCount: 201,
-    image: 'assets/imgAndLogo/Kazan_legendi.jpg',
+    image: 'https://drive.google.com/uc?export=download&id=1RqB1hPhBeNKVudX7xoXtAEBGS79vz4ug',
     author: {
       id: 'author-4',
       name: 'Рустам Ахметов',
@@ -362,7 +362,7 @@ export const mockTours: Tour[] = [
     price: 549,
     rating: 4.7,
     reviewsCount: 145,
-    image: 'assets/imgAndLogo/Ekaterinburg.jpg',
+    image: 'https://drive.google.com/uc?export=download&id=1mPkd5MbvXPqaq5DhD8ijQdNafh4mYXjv',
     author: {
       id: 'author-5',
       name: 'Михаил Уральский',
