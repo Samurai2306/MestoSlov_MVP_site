@@ -4,7 +4,6 @@ const nextConfig = {
   output: 'export',
   trailingSlash: true,
   basePath: '/MestoSlov_MVP_site',
-  assetPrefix: '/MestoSlov_MVP_site/',
   images: {
     domains: ['res.cloudinary.com', 'images.unsplash.com'],
     unoptimized: true,
@@ -15,7 +14,7 @@ const nextConfig = {
       use: {
         loader: 'file-loader',
         options: {
-          publicPath: '/MestoSlov_MVP_site/_next/static/audio/',
+          publicPath: '/_next/static/audio/',
           outputPath: 'static/audio/',
           name: '[name].[hash].[ext]',
         },

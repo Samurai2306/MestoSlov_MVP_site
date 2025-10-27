@@ -61,6 +61,7 @@ export default function AboutPage() {
     { number: '200+', label: 'Авторов' },
   ]
 
+  
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-cream to-white">
       {/* Hero */}
