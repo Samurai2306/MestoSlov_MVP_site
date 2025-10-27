@@ -12,37 +12,37 @@ const SocialLinks = ({
 }: SocialLinksProps) => {
   const socialLinks = [
     { 
-      icon: '/assets/imgAndLogo/icons8-vk.svg', 
+      icon: 'https://drive.google.com/thumbnail?id=10HEPsP-6gPAP9Y-T7DASQ9ToDcipo9FE&sz=w1000', 
       href: 'https://vk.com/mestoslov', 
       label: 'VK',
       color: '#0077FF'
     },
     { 
-      icon: '/assets/imgAndLogo/icons8-телеграм.svg', 
+      icon: 'https://drive.google.com/thumbnail?id=1-GY9rUh92U2QlVm6-b7SJ1z2GA3i7QfO&sz=w1000', 
       href: 'https://t.me/mestoslov', 
       label: 'Telegram',
       color: '#0088CC'
     },
     { 
-      icon: '/assets/imgAndLogo/icons8-instagram.svg', 
+      icon: 'https://drive.google.com/thumbnail?id=1Ct18j6EVosMJhbQZjOO71FPkbh6CIBcy&sz=w1000', 
       href: 'https://instagram.com/mestoslov', 
       label: 'Instagram',
       color: '#E4405F'
     },
     { 
-      icon: '/assets/imgAndLogo/icons8-facebook.svg', 
+      icon: 'https://drive.google.com/thumbnail?id=1zVQ0mINPnGbNJTr3HVHrGo_5pCu1vT-w&sz=w1000', 
       href: 'https://facebook.com/mestoslov', 
       label: 'Facebook',
       color: '#1877F2'
     },
     { 
-      icon: '/assets/imgAndLogo/icons8-github.svg', 
+      icon: 'https://drive.google.com/thumbnail?id=19RvOsHhBd_3lB_rl7IOmQKxXBHn_-9DE&sz=w1000', 
       href: 'https://github.com/mestoslov', 
       label: 'GitHub',
       color: '#333333'
     },
     { 
-      icon: '/assets/imgAndLogo/icons8-gmail.svg', 
+      icon: 'https://drive.google.com/thumbnail?id=1vOr9coAwb-e8aWRUB-8JSzYghCClLF5z&sz=w1000', 
       href: 'mailto:hello@mestoslov.ru', 
       label: 'Email',
       color: '#EA4335'

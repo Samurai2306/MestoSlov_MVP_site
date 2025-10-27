@@ -40,7 +40,7 @@ export default function ContactPage() {
 
   const contactInfo = [
     {
-      icon: '/assets/imgAndLogo/icons8-gmail.svg',
+      icon: 'https://drive.google.com/thumbnail?id=1vOr9coAwb-e8aWRUB-8JSzYghCClLF5z&sz=w1000',
       title: 'Email',
       value: 'hello@mestoslov.ru',
       link: 'mailto:hello@mestoslov.ru',
@@ -56,19 +56,19 @@ export default function ContactPage() {
       link: 'tel:+74951234567',
     },
     {
-      icon: '/assets/imgAndLogo/icons8-телеграм.svg',
+      icon: 'https://drive.google.com/thumbnail?id=1-GY9rUh92U2QlVm6-b7SJ1z2GA3i7QfO&sz=w1000',
       title: 'Telegram',
       value: '@mestoslov',
       link: 'https://t.me/mestoslov',
     },
     {
-      icon: '/assets/imgAndLogo/icons8-vk.svg',
+      icon: 'https://drive.google.com/thumbnail?id=10HEPsP-6gPAP9Y-T7DASQ9ToDcipo9FE&sz=w1000',
       title: 'VK',
       value: 'vk.com/mestoslov',
       link: 'https://vk.com/mestoslov',
     },
     {
-      icon: '/assets/imgAndLogo/icons8-instagram.svg',
+      icon: 'https://drive.google.com/thumbnail?id=1Ct18j6EVosMJhbQZjOO71FPkbh6CIBcy&sz=w1000',
       title: 'Instagram',
       value: '@mestoslov',
       link: 'https://instagram.com/mestoslov',

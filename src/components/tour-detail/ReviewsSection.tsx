@@ -17,7 +17,7 @@ const ReviewsSection = ({ tourId }: ReviewsSectionProps) => {
       id: 1,
       user: {
         name: 'Мария Иванова',
-        avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150',
+        avatar: 'https://drive.google.com/thumbnail?id=1kWKh-Q1i1SoTYW4_qzZ_gVMa1DBX6XoO&sz=w150',
       },
       rating: 5,
       date: '15 января 2024',
@@ -32,7 +32,7 @@ const ReviewsSection = ({ tourId }: ReviewsSectionProps) => {
       id: 2,
       user: {
         name: 'Алексей Смирнов',
-        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150',
+        avatar: 'https://drive.google.com/thumbnail?id=1s2Cc2ustmjogwxuhmp7iy0pchwkkE4tQ&sz=w150',
       },
       rating: 5,
       date: '10 января 2024',
@@ -43,7 +43,7 @@ const ReviewsSection = ({ tourId }: ReviewsSectionProps) => {
       id: 3,
       user: {
         name: 'Елена Волкова',
-        avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150',
+        avatar: 'https://drive.google.com/thumbnail?id=1RqB1hPhBeNKVudX7xoXtAEBGS79vz4ug&sz=w150',
       },
       rating: 4,
       date: '5 января 2024',

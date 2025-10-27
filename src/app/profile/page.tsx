@@ -20,7 +20,7 @@ export default function ProfilePage() {
   const user = {
     name: 'Анна Иванова',
     email: 'anna.ivanova@example.com',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150',
+    avatar: 'https://drive.google.com/thumbnail?id=1kWKh-Q1i1SoTYW4_qzZ_gVMa1DBX6XoO&sz=w150',
     memberSince: 'Январь 2024',
     stats: {
       toursCompleted: 12,

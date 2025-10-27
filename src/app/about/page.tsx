@@ -8,25 +8,25 @@ export default function AboutPage() {
     {
       name: 'Чернов Глеб Анатольевич',
       role: 'Бог среди людей',
-      image: '/assets/imgAndLogo/1.jpg',
+      image: 'https://drive.google.com/thumbnail?id=1TY01EOtHHl7F5DvJfE40vfv-Xkebv3A0&sz=w1000',
       bio: 'Просто само совершенство'
     },
     {
       name: 'Глеб Анатольевич',
       role: 'Главный и единственный разработчик',
-      image: '/assets/imgAndLogo/2.jpg',
+      image: 'https://drive.google.com/thumbnail?id=1kgHFbdbtQR1i6qvvASUSFw9a5UCpSTkG&sz=w1000',
       bio: 'Разработчик и технический энтузиаст'
     },
     {
       name: 'Ира',
       role: 'CEO',
-      image: '/assets/imgAndLogo/Kazan_legendi.jpg',
+      image: 'https://drive.google.com/thumbnail?id=1RqB1hPhBeNKVudX7xoXtAEBGS79vz4ug&sz=w1000',
       bio: 'Помощница красотки'
     },
     {
       name: 'Софья Собещанская',
       role: 'Основатель',
-      image: '/assets/imgAndLogo/4.jpg',
+      image: 'https://drive.google.com/thumbnail?id=1s2Cc2ustmjogwxuhmp7iy0pchwkkE4tQ&sz=w1000',
       bio: 'Создатель концепции,идеи проекта и просто красотка'
     },
   ]

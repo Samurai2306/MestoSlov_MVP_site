@@ -34,13 +34,13 @@ const TestimonialsSection = () => {
     },
     {
       id: 3,
-      name: 'Елена Волкова',
-      role: 'Автор экскурсий',
-      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150',
+      name: 'Чернов Глеб',
+      role: 'Автор этого мира',
+      avatar: 'https://drive.google.com/thumbnail?id=1kWKh-Q1i1SoTYW4_qzZ_gVMa1DBX6XoO&sz=w150',
       rating: 5,
       text: 'Платформа дала мне возможность делиться историями моего города с тысячами людей. Техническая поддержка на высоте!',
       tour: 'Автор на платформе',
-      city: 'Казань',
+      city: 'Олимп',
     },
   ]
 
