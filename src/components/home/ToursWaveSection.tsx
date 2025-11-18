@@ -22,7 +22,7 @@ const ToursWaveSection = () => {
       reviews: 234,
       duration: 90,
       price: 499,
-      image: 'https://images.unsplash.com/photo-1555991438-b87d68cb3e1f?w=600',
+      image: 'https://drive.google.com/thumbnail?id=1dGqbHj95uQ15XUJOOCfodFj93vspvF-6&sz=w1000',
       category: 'История',
     },
     {
@@ -34,7 +34,7 @@ const ToursWaveSection = () => {
       reviews: 189,
       duration: 120,
       price: 599,
-      image: 'https://images.unsplash.com/photo-1547448415-e9f5b28e570d?w=600',
+      image: 'https://drive.google.com/thumbnail?id=1mLSdsxl2Ytvn9DAzr1RALM9keuqVQazL&sz=w1000',
       category: 'Архитектура',
     },
     {
@@ -58,7 +58,7 @@ const ToursWaveSection = () => {
       reviews: 201,
       duration: 150,
       price: 699,
-      image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=600',
+      image: 'https://drive.google.com/thumbnail?id=1RqB1hPhBeNKVudX7xoXtAEBGS79vz4ug&sz=w1000',
       category: 'Традиции',
     },
   ]
