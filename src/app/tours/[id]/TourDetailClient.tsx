@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 import { 
   Star, Clock, MapPin, Users, Heart, Share2, 
   CheckCircle, Play, Download, ShoppingCart 
@@ -215,10 +216,16 @@ export default function TourDetailClient() {
                   <div className="text-gray-600">за экскурсию</div>
                 </div>
                 
-                <button className="w-full bg-gradient-sunset text-white py-4 rounded-xl font-semibold text-lg mb-4 hover:shadow-lg transition-all">
-                  <ShoppingCart className="w-5 h-5 inline mr-2" />
-                  Купить экскурсию
-                </button>
+                <Link href={`/payment?tourId=${tour.id}`}>
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full bg-gradient-sunset text-white py-4 rounded-xl font-semibold text-lg mb-4 hover:shadow-lg transition-all"
+                  >
+                    <ShoppingCart className="w-5 h-5 inline mr-2" />
+                    Купить экскурсию
+                  </motion.button>
+                </Link>
                 
                 <div className="space-y-3 text-sm text-gray-600">
                   <div className="flex items-center space-x-2">

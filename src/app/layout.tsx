@@ -32,6 +32,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <head>
+        <link rel="icon" href="/MestoSlov_MVP_site/assets/imgAndLogo/1.jpg" type="image/jpeg" />
         <link rel="manifest" href="/MestoSlov_MVP_site/manifest.json" />
         <meta name="theme-color" content="#38B2AC" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
