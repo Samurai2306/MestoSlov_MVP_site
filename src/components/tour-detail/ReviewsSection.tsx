@@ -130,10 +130,14 @@ const ReviewsSection = ({ tourId }: ReviewsSectionProps) => {
               <div className="flex items-center space-x-3">
                 <div className="relative w-12 h-12 rounded-full overflow-hidden">
                   <Image
-                    src={review.user.avatar}
+                    src={review.user.avatar || 'https://i.pravatar.cc/150?img=1'}
                     alt={review.user.name}
                     fill
                     className="object-cover"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement
+                      target.src = 'https://i.pravatar.cc/150?img=1'
+                    }}
                   />
                 </div>
                 <div>

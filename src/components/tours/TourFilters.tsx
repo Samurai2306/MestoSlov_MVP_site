@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { MapPin, Grid, Clock, Sliders } from 'lucide-react'
+import { MapPin, Grid, Clock, Sliders, DollarSign } from 'lucide-react'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '@/lib/store'
 import { setFilters } from '@/lib/slices/toursSlice'
@@ -60,8 +60,15 @@ const TourFilters = () => {
     dispatch(setFilters({ duration }))
   }
 
+  const handlePriceChange = (min: string, max: string) => {
+    dispatch(setFilters({ 
+      priceMin: min === '0' && max === 'Infinity' ? '' : min,
+      priceMax: max === 'Infinity' ? '' : max,
+    }))
+  }
+
   const clearFilters = () => {
-    dispatch(setFilters({ city: '', category: '', duration: '', search: '' }))
+    dispatch(setFilters({ city: '', category: '', duration: '', search: '', priceMin: '', priceMax: '' }))
   }
 
   return (
@@ -134,12 +141,12 @@ const TourFilters = () => {
       </div>
 
       {/* Duration Filter */}
-      <div className="mb-6">
+      <div className="mb-6 pb-6 border-b border-gray-100">
         <div className="flex items-center space-x-2 mb-3">
-          <Clock className="w-4 h-4 text-gray-600" />
+          <Clock className="w-4 h-4 text-gray-600" aria-hidden="true" />
           <label className="font-medium text-gray-900">Длительность</label>
         </div>
-        <div className="space-y-2">
+        <div className="space-y-2" role="group" aria-label="Фильтр по длительности">
           {durations.map((duration) => (
             <motion.button
               key={duration.label}
@@ -150,6 +157,7 @@ const TourFilters = () => {
                   ? 'bg-primary-teal text-white'
                   : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
               }`}
+              aria-pressed={filters.duration === duration.value}
             >
               {duration.label}
             </motion.button>
@@ -157,8 +165,39 @@ const TourFilters = () => {
         </div>
       </div>
 
+      {/* Price Filter */}
+      <div className="mb-6">
+        <div className="flex items-center space-x-2 mb-3">
+          <DollarSign className="w-4 h-4 text-gray-600" aria-hidden="true" />
+          <label className="font-medium text-gray-900">Цена</label>
+        </div>
+        <div className="space-y-2" role="group" aria-label="Фильтр по цене">
+          {priceRanges.map((range) => {
+            const isActive = 
+              (range.min === 0 && range.max === Infinity && !filters.priceMin && !filters.priceMax) ||
+              (filters.priceMin === String(range.min) && filters.priceMax === String(range.max))
+            
+            return (
+              <motion.button
+                key={range.label}
+                whileHover={{ x: 4 }}
+                onClick={() => handlePriceChange(String(range.min), String(range.max))}
+                className={`w-full text-left px-4 py-2 rounded-lg transition-colors ${
+                  isActive
+                    ? 'bg-primary-teal text-white'
+                    : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
+                }`}
+                aria-pressed={isActive}
+              >
+                {range.label}
+              </motion.button>
+            )
+          })}
+        </div>
+      </div>
+
       {/* Active Filters */}
-      {(filters.city || filters.category || filters.duration || filters.search) && (
+      {(filters.city || filters.category || filters.duration || filters.search || filters.priceMin || filters.priceMax) && (
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -184,6 +223,15 @@ const TourFilters = () => {
             {filters.search && (
               <span className="px-3 py-1 bg-primary-teal/10 text-primary-teal text-sm rounded-full">
                 {filters.search}
+              </span>
+            )}
+            {(filters.priceMin || filters.priceMax) && (
+              <span className="px-3 py-1 bg-primary-teal/10 text-primary-teal text-sm rounded-full">
+                {filters.priceMin && filters.priceMax 
+                  ? `${filters.priceMin}-${filters.priceMax} ₽`
+                  : filters.priceMin 
+                    ? `от ${filters.priceMin} ₽`
+                    : `до ${filters.priceMax} ₽`}
               </span>
             )}
           </div>

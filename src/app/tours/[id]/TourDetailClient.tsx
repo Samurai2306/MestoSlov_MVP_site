@@ -43,10 +43,15 @@ export default function TourDetailClient() {
       {/* Hero Section */}
       <section className="relative h-[70vh] overflow-hidden">
         <Image
-          src={tour.image}
+          src={tour.image || 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200'}
           alt={tour.title}
           fill
           className="object-cover"
+          priority
+          onError={(e) => {
+            const target = e.target as HTMLImageElement
+            target.src = 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200'
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         
@@ -200,9 +205,9 @@ export default function TourDetailClient() {
             </div>
 
             {/* Right Column */}
-            <div className="space-y-6">
+            <div className="space-y-6 relative">
               {/* Purchase Card */}
-              <div className="bg-white rounded-2xl p-8 shadow-lg sticky top-8">
+              <div className="bg-white rounded-2xl p-8 shadow-lg sticky top-8 z-20">
                 <div className="text-center mb-6">
                   <div className="text-4xl font-bold text-primary-teal mb-2">
                     {tour.price} ₽
@@ -232,7 +237,9 @@ export default function TourDetailClient() {
               </div>
 
               {/* Author Card */}
-              <AuthorCard author={tour.author} />
+              <div className="relative z-10">
+                <AuthorCard author={tour.author} />
+              </div>
               
               {/* Related Tours */}
               <RelatedTours currentTourId={tour.id} city={tour.city} />

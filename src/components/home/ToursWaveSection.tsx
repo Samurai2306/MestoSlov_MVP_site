@@ -113,10 +113,15 @@ const ToursWaveSection = () => {
                   <div className="bg-white rounded-2xl overflow-hidden shadow-elevation hover:shadow-glow transition-all duration-300 card-3d">
                     <div className="relative h-48 overflow-hidden">
                       <Image
-                        src={tour.image}
+                        src={tour.image || 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600'}
                         alt={tour.title}
                         fill
                         className="object-cover group-hover:scale-110 transition-transform duration-500"
+                        loading="lazy"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement
+                          target.src = 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600'
+                        }}
                       />
                       <div className="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-sm font-medium text-primary-green">
                         {tour.category}

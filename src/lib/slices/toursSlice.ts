@@ -10,6 +10,8 @@ interface ToursState {
     category: string
     duration: string
     search: string
+    priceMin: string
+    priceMax: string
   }
   loading: boolean
 }
@@ -23,6 +25,8 @@ const initialState: ToursState = {
     category: '',
     duration: '',
     search: '',
+    priceMin: '',
+    priceMax: '',
   },
   loading: false,
 }

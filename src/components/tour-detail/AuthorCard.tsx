@@ -19,10 +19,14 @@ const AuthorCard = ({ author }: AuthorCardProps) => {
       <div className="text-center mb-6">
         <div className="relative w-24 h-24 mx-auto mb-4">
           <Image
-            src={author.avatar}
+            src={author.avatar || 'https://i.pravatar.cc/150?img=1'}
             alt={author.name}
             fill
             className="object-cover rounded-full"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement
+              target.src = 'https://i.pravatar.cc/150?img=1'
+            }}
           />
           {author.verified && (
             <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-primary-teal rounded-full flex items-center justify-center border-4 border-white">

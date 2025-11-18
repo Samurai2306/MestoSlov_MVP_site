@@ -25,10 +25,15 @@ const TourCard = ({ tour }: TourCardProps) => {
       <Link href={`/tours/${tour.id}`}>
         <div className="relative h-56 overflow-hidden">
           <Image
-            src={tour.image}
+            src={tour.image || 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600'}
             alt={tour.title}
             fill
             className="object-cover group-hover:scale-110 transition-transform duration-500"
+            loading="lazy"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement
+              target.src = 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600'
+            }}
           />
           
           {/* Gradient Overlay */}
@@ -105,10 +110,14 @@ const TourCard = ({ tour }: TourCardProps) => {
         <div className="flex items-center space-x-3 mb-4 pb-4 border-b border-gray-100">
           <div className="relative w-8 h-8 rounded-full overflow-hidden">
             <Image
-              src={tour.author.avatar}
+              src={tour.author.avatar || 'https://i.pravatar.cc/150?img=1'}
               alt={tour.author.name}
               fill
               className="object-cover"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement
+                target.src = 'https://i.pravatar.cc/150?img=1'
+              }}
             />
           </div>
           <span className="text-sm text-gray-600">{tour.author.name}</span>

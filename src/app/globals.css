@@ -4,6 +4,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
+/* Font Display Optimization */
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+}
+
 :root {
   --primary-teal: #38B2AC;
   --primary-yellow: #F6AD55;
@@ -143,4 +149,77 @@ body {
   background: radial-gradient(circle, var(--tw-gradient-stops));
 }
 
+/* Accessibility: Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Accessibility: Focus States */
+*:focus-visible {
+  outline: 2px solid var(--primary-teal);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--primary-teal);
+  outline-offset: 2px;
+}
+
+/* Skip Link */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Font Display Optimization */
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+}
+
+/* Touch Target Sizes (minimum 44x44px) */
+button,
+a[role="button"],
+input[type="button"],
+input[type="submit"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* High Contrast Support */
+@media (prefers-contrast: high) {
+  * {
+    border-color: currentColor;
+  }
+}
 

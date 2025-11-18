@@ -6,28 +6,22 @@ import Image from 'next/image'
 export default function AboutPage() {
   const team = [
     {
-      name: 'Чернов Глеб Анатольевич',
-      role: 'Бог среди людей',
-      image: 'https://drive.google.com/thumbnail?id=1TY01EOtHHl7F5DvJfE40vfv-Xkebv3A0&sz=w1000',
-      bio: 'Просто само совершенство'
+      name: 'Софья Собещанская',
+      role: 'Основатель и CEO',
+      image: 'https://drive.google.com/thumbnail?id=1s2Cc2ustmjogwxuhmp7iy0pchwkkE4tQ&sz=w1000',
+      bio: 'Создатель концепции и идеи проекта. Вдохновляет команду и определяет стратегическое развитие платформы МестоСлов.'
     },
     {
       name: 'Глеб Анатольевич',
-      role: 'Главный и единственный разработчик',
-      image: 'https://drive.google.com/thumbnail?id=1kgHFbdbtQR1i6qvvASUSFw9a5UCpSTkG&sz=w1000',
-      bio: 'Разработчик и технический энтузиаст'
+      role: 'Технический директор',
+      image: 'https://drive.google.com/thumbnail?id=1AIzxYqfKNARvlOwK9rx3teKUaEfr9bUi&sz=w1000',
+      bio: 'Руководит разработкой платформы и технической инфраструктуры. Обеспечивает высокое качество и производительность сервиса.'
     },
     {
       name: 'Ира',
-      role: 'CEO',
-      image: 'https://drive.google.com/thumbnail?id=1RqB1hPhBeNKVudX7xoXtAEBGS79vz4ug&sz=w1000',
-      bio: 'Помощница красотки'
-    },
-    {
-      name: 'Софья Собещанская',
-      role: 'Основатель',
-      image: 'https://drive.google.com/thumbnail?id=1s2Cc2ustmjogwxuhmp7iy0pchwkkE4tQ&sz=w1000',
-      bio: 'Создатель концепции,идеи проекта и просто красотка'
+      role: 'Операционный директор',
+      image: 'https://drive.google.com/thumbnail?id=1M58p6BPBDlmNYp0IWU82KX7BBDdKT5kT&sz=w1000',
+      bio: 'Координирует операционные процессы, работу с авторами и партнерами. Отвечает за развитие сообщества и качество контента.'
     },
   ]
 
@@ -176,6 +170,11 @@ export default function AboutPage() {
                     alt={member.name}
                     fill
                     className="object-cover"
+                    loading="lazy"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement
+                      target.src = 'https://i.pravatar.cc/300?img=1'
+                    }}
                   />
                 </div>
                 <div className="p-6">

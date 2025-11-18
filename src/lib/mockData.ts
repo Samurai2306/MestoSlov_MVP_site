@@ -16,7 +16,7 @@ export const mockTours: Tour[] = [
     author: {
       id: 'author-1',
       name: 'Анна Петрова',
-      avatar: 'https://drive.google.com/thumbnail?id=1kWKh-Q1i1SoTYW4_qzZ_gVMa1DBX6XoO&sz=w150',
+      avatar: 'https://i.pravatar.cc/150?img=47',
       bio: 'Историк, влюбленная в Петербург',
       toursCount: 12,
       rating: 4.9,
@@ -41,7 +41,7 @@ export const mockTours: Tour[] = [
     author: {
       id: 'author-11',
       name: 'Елена Волкова',
-      avatar: 'https://drive.google.com/thumbnail?id=1s2Cc2ustmjogwxuhmp7iy0pchwkkE4tQ&sz=w150',
+      avatar: 'https://i.pravatar.cc/150?img=33',
       bio: 'Экскурсовод по Золотому кольцу',
       toursCount: 15,
       rating: 4.7,
@@ -66,7 +66,7 @@ export const mockTours: Tour[] = [
     author: {
       id: 'author-12',
       name: 'Рустам Галеев',
-      avatar: 'https://drive.google.com/thumbnail?id=1TY01EOtHHl7F5DvJfE40vfv-Xkebv3A0&sz=w150',
+      avatar: 'https://i.pravatar.cc/150?img=12',
       bio: 'Краевед и историк Казани',
       toursCount: 9,
       rating: 4.8,
@@ -91,7 +91,7 @@ export const mockTours: Tour[] = [
     author: {
       id: 'author-13',
       name: 'Алексей Уралов',
-      avatar: 'https://drive.google.com/thumbnail?id=1kgHFbdbtQR1i6qvvASUSFw9a5UCpSTkG&sz=w150',
+      avatar: 'https://i.pravatar.cc/150?img=68',
       bio: 'Краевед Урала',
       toursCount: 7,
       rating: 4.6,
@@ -116,7 +116,7 @@ export const mockTours: Tour[] = [
     author: {
       id: 'author-14',
       name: 'Мария Сибирская',
-      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150',
+      avatar: 'https://i.pravatar.cc/150?img=27',
       bio: 'Гид по Сибири',
       toursCount: 11,
       rating: 4.5,
@@ -141,7 +141,7 @@ export const mockTours: Tour[] = [
     author: {
       id: 'author-15',
       name: 'Игорь Морской',
-      avatar: 'https://drive.google.com/thumbnail?id=1kgHFbdbtQR1i6qvvASUSFw9a5UCpSTkG&sz=w150',
+      avatar: 'https://i.pravatar.cc/150?img=68',
       bio: 'Морской историк и гид',
       toursCount: 6,
       rating: 4.9,
@@ -166,7 +166,7 @@ export const mockTours: Tour[] = [
     author: {
       id: 'author-16',
       name: 'Светлана Кубанская',
-      avatar: 'https://drive.google.com/thumbnail?id=1kWKh-Q1i1SoTYW4_qzZ_gVMa1DBX6XoO&sz=w150',
+      avatar: 'https://i.pravatar.cc/150?img=47',
       bio: 'Краевед Кубани',
       toursCount: 8,
       rating: 4.4,
@@ -191,7 +191,7 @@ export const mockTours: Tour[] = [
     author: {
       id: 'author-17',
       name: 'Дмитрий Донской',
-      avatar: 'https://drive.google.com/thumbnail?id=1TY01EOtHHl7F5DvJfE40vfv-Xkebv3A0&sz=w150',
+      avatar: 'https://i.pravatar.cc/150?img=12',
       bio: 'Историк Дона',
       toursCount: 10,
       rating: 4.6,
@@ -216,7 +216,7 @@ export const mockTours: Tour[] = [
     author: {
       id: 'author-18',
       name: 'Александр Волжский',
-      avatar: 'https://drive.google.com/thumbnail?id=1kgHFbdbtQR1i6qvvASUSFw9a5UCpSTkG&sz=w150',
+      avatar: 'https://i.pravatar.cc/150?img=68',
       bio: 'Военный историк',
       toursCount: 13,
       rating: 4.8,
@@ -241,7 +241,7 @@ export const mockTours: Tour[] = [
     author: {
       id: 'author-19',
       name: 'Елена Красноярская',
-      avatar: 'https://drive.google.com/thumbnail?id=1s2Cc2ustmjogwxuhmp7iy0pchwkkE4tQ&sz=w150',
+      avatar: 'https://i.pravatar.cc/150?img=33',
       bio: 'Краевед Сибири',
       toursCount: 9,
       rating: 4.5,
@@ -266,7 +266,7 @@ export const mockTours: Tour[] = [
     author: {
       id: 'author-20',
       name: 'Анна Пермская',
-      avatar: 'https://drive.google.com/thumbnail?id=1kWKh-Q1i1SoTYW4_qzZ_gVMa1DBX6XoO&sz=w150',
+      avatar: 'https://i.pravatar.cc/150?img=47',
       bio: 'Культуролог и гид',
       toursCount: 7,
       rating: 4.4,
@@ -291,7 +291,7 @@ export const mockTours: Tour[] = [
     author: {
       id: 'author-2',
       name: 'Дмитрий Соколов',
-      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150',
+      avatar: 'https://i.pravatar.cc/150?img=52',
       bio: 'Архитектор и городской исследователь',
       toursCount: 8,
       rating: 4.8,
@@ -316,7 +316,7 @@ export const mockTours: Tour[] = [
     author: {
       id: 'author-3',
       name: 'Елена Волкова',
-      avatar: 'https://drive.google.com/thumbnail?id=1s2Cc2ustmjogwxuhmp7iy0pchwkkE4tQ&sz=w150',
+      avatar: 'https://i.pravatar.cc/150?img=33',
       bio: 'Искусствовед и экскурсовод',
       toursCount: 15,
       rating: 5.0,
@@ -341,7 +341,7 @@ export const mockTours: Tour[] = [
     author: {
       id: 'author-4',
       name: 'Рустам Ахметов',
-      avatar: 'https://drive.google.com/thumbnail?id=1kgHFbdbtQR1i6qvvASUSFw9a5UCpSTkG&sz=w150',
+      avatar: 'https://i.pravatar.cc/150?img=68',
       bio: 'Знаток татарской культуры',
       toursCount: 10,
       rating: 4.9,
@@ -366,7 +366,7 @@ export const mockTours: Tour[] = [
     author: {
       id: 'author-5',
       name: 'Михаил Уральский',
-      avatar: 'https://drive.google.com/thumbnail?id=1TY01EOtHHl7F5DvJfE40vfv-Xkebv3A0&sz=w150',
+      avatar: 'https://i.pravatar.cc/150?img=12',
       bio: 'Краевед и журналист',
       toursCount: 7,
       rating: 4.7,
@@ -391,7 +391,7 @@ export const mockTours: Tour[] = [
     author: {
       id: 'author-6',
       name: 'Светлана Морская',
-      avatar: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150',
+      avatar: 'https://i.pravatar.cc/150?img=20',
       bio: 'Биолог и эколог',
       toursCount: 9,
       rating: 4.8,

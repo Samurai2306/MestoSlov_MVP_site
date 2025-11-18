@@ -18,8 +18,8 @@ export default function ProfilePage() {
 
   // Mock user data
   const user = {
-    name: 'Анна Иванова',
-    email: 'anna.ivanova@example.com',
+    name: 'Глеб Чернов',
+    email: 'gleb.chernov@example.com',
     avatar: 'https://drive.google.com/thumbnail?id=1kWKh-Q1i1SoTYW4_qzZ_gVMa1DBX6XoO&sz=w150',
     memberSince: 'Январь 2024',
     stats: {
@@ -27,7 +27,7 @@ export default function ProfilePage() {
       citiesVisited: 5,
       totalDistance: 45.3,
       totalListeningTime: 720,
-      pointsVisited: 156,
+      pointsVisited: 75,
     },
   }
 
@@ -59,6 +59,11 @@ export default function ProfilePage() {
                 alt={user.name}
                 fill
                 className="object-cover"
+                loading="lazy"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement
+                  target.src = 'https://i.pravatar.cc/300?img=1'
+                }}
               />
             </motion.div>
 

@@ -124,10 +124,14 @@ const TestimonialsSection = () => {
                       className="relative w-14 h-14 rounded-full overflow-hidden ring-4 ring-primary-teal/10"
                     >
                       <Image
-                        src={testimonial.avatar}
+                        src={testimonial.avatar || 'https://i.pravatar.cc/150?img=1'}
                         alt={testimonial.name}
                         fill
                         className="object-cover"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement
+                          target.src = 'https://i.pravatar.cc/150?img=1'
+                        }}
                       />
                     </motion.div>
                     <div>
