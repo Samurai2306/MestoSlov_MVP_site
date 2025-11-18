@@ -80,12 +80,12 @@ const InteractiveMapSection = () => {
         <div className="relative max-w-7xl mx-auto bg-gradient-to-br from-primary-teal/5 via-white to-accent-amber/5 rounded-3xl p-8 shadow-2xl border border-white">
           <div className="relative w-full h-auto" style={{ contain: 'layout style paint' }}>
             {isVisible && (
-              <Image
+            <Image
                 src="/MestoSlov_MVP_site/assets/imgAndLogo/ru.svg"
-                alt="Карта России"
-                width={1000}
-                height={600}
-                className="w-full h-auto"
+              alt="Карта России"
+              width={1000}
+              height={600}
+              className="w-full h-auto"
                 style={{ 
                   filter: 'drop-shadow(0 10px 30px rgba(56, 178, 172, 0.15))',
                   willChange: 'auto'
@@ -96,7 +96,7 @@ const InteractiveMapSection = () => {
                   const target = e.target as HTMLImageElement
                   target.src = 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200'
                 }}
-              />
+            />
             )}
 
             {/* Города на карте - оптимизированный SVG */}
@@ -111,39 +111,39 @@ const InteractiveMapSection = () => {
                 {cities.map((city) => {
                   const isHovered = hoveredCity === city.id
                   return (
-                    <g
-                      key={city.id}
+                <g
+                  key={city.id}
                       onMouseEnter={() => handleMouseEnter(city.id)}
                       onMouseLeave={handleMouseLeave}
-                      className="cursor-pointer"
+                  className="cursor-pointer"
                       style={{ pointerEvents: 'auto' }}
-                    >
-                      <circle
-                        cx={city.coords.x}
-                        cy={city.coords.y}
+                >
+                  <circle
+                    cx={city.coords.x}
+                    cy={city.coords.y}
                         r={isHovered ? 10 : 7}
-                        fill={city.color}
+                    fill={city.color}
                         className="transition-all duration-200 ease-out"
                         style={{ 
                           filter: isHovered ? `drop-shadow(0 0 8px ${city.color})` : 'none',
                           transformOrigin: `${city.coords.x}px ${city.coords.y}px`,
                           willChange: 'transform, filter'
                         }}
-                      />
+                  />
                       {isHovered && (
-                        <text
-                          x={city.coords.x + 15}
-                          y={city.coords.y + 5}
-                          className="text-sm font-bold fill-gray-800 pointer-events-none"
+                    <text
+                      x={city.coords.x + 15}
+                      y={city.coords.y + 5}
+                      className="text-sm font-bold fill-gray-800 pointer-events-none"
                           style={{ willChange: 'auto' }}
-                        >
-                          {city.name}
-                        </text>
-                      )}
-                    </g>
+                    >
+                      {city.name}
+                    </text>
+                  )}
+                </g>
                   )
                 })}
-              </svg>
+            </svg>
             )}
           </div>
 

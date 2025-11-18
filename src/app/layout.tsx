@@ -35,6 +35,7 @@ export default function RootLayout({
         <link rel="icon" href="/MestoSlov_MVP_site/assets/imgAndLogo/1.jpg" type="image/jpeg" />
         <link rel="manifest" href="/MestoSlov_MVP_site/manifest.json" />
         <meta name="theme-color" content="#38B2AC" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="МестоСлов" />
@@ -49,25 +50,25 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
         <ErrorBoundary>
-          <Providers>
+        <Providers>
             <PWARegister />
             <SkipLink />
-            <Navigation />
+          <Navigation />
             <main id="main-content" className="min-h-screen">
-              {children}
-            </main>
-            <Footer />
-            <Toaster 
-              position="top-right"
-              toastOptions={{
-                duration: 3000,
-                style: {
-                  background: '#38B2AC',
-                  color: '#fff',
-                },
-              }}
-            />
-          </Providers>
+            {children}
+          </main>
+          <Footer />
+          <Toaster 
+            position="top-right"
+            toastOptions={{
+              duration: 3000,
+              style: {
+                background: '#38B2AC',
+                color: '#fff',
+              },
+            }}
+          />
+        </Providers>
         </ErrorBoundary>
       </body>
     </html>

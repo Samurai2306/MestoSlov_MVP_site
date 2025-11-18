@@ -37,6 +37,17 @@ body {
   overflow-x: hidden;
 }
 
+/* Ensure content is visible even without JavaScript */
+#main-content {
+  min-height: 100vh;
+}
+
+/* Progressive enhancement - content visible by default, enhanced with JS */
+.no-js section,
+.no-js [data-animate] {
+  opacity: 1 !important;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;

@@ -12,7 +12,7 @@ import LoadingSpinner from '@/components/common/LoadingSpinner'
 function ToursContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
-  
+
   const [sortBy, setSortBy] = useState(() => searchParams.get('sort') || 'popular')
   const [filters, setFilters] = useState({
     city: searchParams.get('city') || '',

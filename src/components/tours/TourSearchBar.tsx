@@ -171,24 +171,24 @@ const TourSearchBar = () => {
 
             {/* Popular Searches */}
             <div>
-              <div className="flex items-center space-x-2 mb-3 text-sm text-gray-600">
+            <div className="flex items-center space-x-2 mb-3 text-sm text-gray-600">
                 <TrendingUp className="w-4 h-4" aria-hidden="true" />
-                <span className="font-medium">Популярные запросы</span>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {popularSearches.map((search) => (
-                  <motion.button
-                    key={search}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => handleSearch(search)}
-                    className="px-4 py-2 bg-primary-teal/10 hover:bg-primary-teal hover:text-white text-primary-teal rounded-full text-sm font-medium transition-colors"
+              <span className="font-medium">Популярные запросы</span>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {popularSearches.map((search) => (
+                <motion.button
+                  key={search}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => handleSearch(search)}
+                  className="px-4 py-2 bg-primary-teal/10 hover:bg-primary-teal hover:text-white text-primary-teal rounded-full text-sm font-medium transition-colors"
                     role="option"
                     aria-label={`Популярный поиск: ${search}`}
-                  >
-                    {search}
-                  </motion.button>
-                ))}
+                >
+                  {search}
+                </motion.button>
+              ))}
               </div>
             </div>
           </motion.div>

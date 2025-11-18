@@ -1,7 +1,6 @@
 'use client'
 
 import { Suspense } from 'react'
-import { motion } from 'framer-motion'
 import HeroSection from '@/components/home/HeroSection'
 import FeaturesSection from '@/components/home/FeaturesSection'
 import ToursWaveSection from '@/components/home/ToursWaveSection'
@@ -13,11 +12,7 @@ import LoadingSpinner from '@/components/common/LoadingSpinner'
 
 export default function Home() {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
-    >
+    <div>
       <HeroSection />
       <FeaturesSection />
       <Suspense fallback={<div className="py-24 flex justify-center"><LoadingSpinner /></div>}>
@@ -29,7 +24,7 @@ export default function Home() {
       <HowItWorksSection />
       <TestimonialsSection />
       <CTASection />
-    </motion.div>
+    </div>
   )
 }
 
